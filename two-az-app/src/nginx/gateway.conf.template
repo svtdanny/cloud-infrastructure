@@ -1,0 +1,8 @@
+server {
+  listen 8000;
+  listen [::]:8000;
+
+  location /api {
+      proxy_pass http://${APP_HOST}:${APP_PORT};
+  }
+}
