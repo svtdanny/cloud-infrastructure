@@ -22,7 +22,7 @@ resource "aws_subnet" "db-a" {
 }
 
 # --- AZ "b" ---
-resource "aws_subnet" "nat-web-b" {
+resource "aws_subnet" "web-b" {
   vpc_id = aws_vpc.main.id
   availability_zone = var.azs.b
   cidr_block = var.web_b.cidr
