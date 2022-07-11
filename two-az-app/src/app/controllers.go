@@ -8,11 +8,13 @@ import (
 	"github.com/go-redis/redis/v8"
 	"net/http"
 	"time"
+	"os"
 )
 
 var (
+    dp_ip, _ = os.LookupEnv("DB_ADDR")
 	redisClient = redis.NewClient(&redis.Options{
-		Addr:     "localhost:6379",
+		Addr:     dp_ip+":6379",
 		Password: "",
 		DB:       0,
 	})

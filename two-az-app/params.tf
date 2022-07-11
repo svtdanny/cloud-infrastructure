@@ -22,6 +22,7 @@ variable "web_a" {
   type = map(string)
   default = {
     cidr = "172.16.0.0/20"
+    ip = "172.16.0.0"
   }
 }
 
@@ -29,6 +30,7 @@ variable "app_a" {
   type = map(string)
   default = {
     cidr = "172.16.16.0/20"
+    ip = "172.16.16.0"
   }
 }
 
@@ -36,6 +38,7 @@ variable "db_a" {
   type = map(string)
   default = {
     cidr = "172.16.32.0/20"
+    ip = "172.16.32.0"
   }
 }
 
@@ -43,6 +46,7 @@ variable "web_b" {
   type = map(string)
   default = {
     cidr = "172.16.48.0/20"
+    ip = "172.16.48.0"
   }
 }
 
@@ -50,6 +54,7 @@ variable "app_b" {
   type = map(string)
   default = {
     cidr = "172.16.64.0/20"
+    ip = "172.16.64.0"
   }
 }
 
@@ -57,5 +62,6 @@ variable "db_b" {
   type = map(string)
   default = {
     cidr = "172.16.80.0/20"
+    ip = "172.16.80.0"
   }
 }

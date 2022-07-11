@@ -18,6 +18,7 @@ resource "aws_instance" "db-a" {
     aws_security_group.db.id,
   ]
   subnet_id = aws_subnet.db-a.id
+  private_ip = var.db_a.ip
   user_data = file("src/db/run.sh")
   tags = {
     Name = "db-a"
@@ -31,7 +32,8 @@ resource "aws_instance" "app-a" {
     aws_security_group.app.id,
   ]
   subnet_id = aws_subnet.app-a.id
-  user_data = file("src/app/run.sh")
+  private_ip = var.app_a.ip
+  user_data = file("src/app/run-a.sh")
   tags = {
     Name = "app-a"
   }
@@ -44,7 +46,8 @@ resource "aws_instance" "app-b" {
     aws_security_group.app.id,
   ]
   subnet_id = aws_subnet.app-b.id
-  user_data = file("src/app/run.sh")
+    private_ip = var.app_b.ip
+  user_data = file("src/app/run-b.sh")
   tags = {
     Name = "app-b"
   }
@@ -57,7 +60,8 @@ resource "aws_instance" "web-a" {
     aws_security_group.web.id,
   ]
   subnet_id = aws_subnet.web-a.id
-  user_data = file("src/nginx/run.sh")
+  private_ip = var.web_b.ip
+  user_data = file("src/nginx/run-a.sh")
   tags = {
     Name = "web-a"
   }
@@ -70,7 +74,8 @@ resource "aws_instance" "web-b" {
     aws_security_group.web.id,
   ]
   subnet_id = aws_subnet.web-b.id
-  user_data = file("src/nginx/run.sh")
+  private_ip = var.app_b.ip
+  user_data = file("src/nginx/run-b.sh")
   tags = {
     Name = "web-b"
   }

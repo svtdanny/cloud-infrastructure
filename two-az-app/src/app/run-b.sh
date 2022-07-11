@@ -7,5 +7,7 @@ sudo usermod -a -G docker ec2-user
 sudo chmod 666 /var/run/docker.sock
 docker version
 
-docker pull redis
-docker run -it -p 6379:6379 redis
+export DB_ADDR="172.16.80.0"
+
+docker pull sivtsovdt/simple-go-redis-app
+docker run -it -p 8080:8080 -e DB_ADDR=${DB_ADDR} sivtsovdt/simple-go-redis-app
