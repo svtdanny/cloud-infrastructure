@@ -7,7 +7,7 @@ sudo usermod -a -G docker ec2-user
 sudo chmod 666 /var/run/docker.sock
 docker version
 
-export APP_HOST="172.16.64.0"
+export APP_HOST="172.16.64.5"
 export APP_PORT=8080
 
 docker pull sivtsovdt/simple-nginx-test

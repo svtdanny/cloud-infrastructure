@@ -77,12 +77,12 @@ resource "aws_route_table" "web" {
 
 resource "aws_route_table_association" "web-a-to-gw" {
   route_table_id = aws_route_table.web.id
-  subnet_id = aws_subnet.app-a.id
+  subnet_id = aws_subnet.web-a.id
 }
 
 resource "aws_route_table_association" "web-b-to-gw" {
   route_table_id = aws_route_table.web.id
-  subnet_id = aws_subnet.app-b.id
+  subnet_id = aws_subnet.web-b.id
 }
 
 resource "aws_route_table" "app-a" {

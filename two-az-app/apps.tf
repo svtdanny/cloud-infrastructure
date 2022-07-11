@@ -60,7 +60,8 @@ resource "aws_instance" "web-a" {
     aws_security_group.web.id,
   ]
   subnet_id = aws_subnet.web-a.id
-  private_ip = var.web_b.ip
+  private_ip = var.web_a.ip
+  associate_public_ip_address = true
   user_data = file("src/nginx/run-a.sh")
   tags = {
     Name = "web-a"
@@ -74,7 +75,7 @@ resource "aws_instance" "web-b" {
     aws_security_group.web.id,
   ]
   subnet_id = aws_subnet.web-b.id
-  private_ip = var.app_b.ip
+  private_ip = var.web_b.ip
   user_data = file("src/nginx/run-b.sh")
   tags = {
     Name = "web-b"
